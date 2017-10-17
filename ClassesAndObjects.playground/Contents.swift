@@ -65,7 +65,7 @@ class Counter
  */
 class Car: Vehicle
 {
-    var engineType : String = "V8"
+    var engineType : String = "V8";
     // Inherited classes can override functions
     override func description() -> String
     {
@@ -74,4 +74,54 @@ class Car: Vehicle
     }
     
 }
+
+class Rectangle
+{
+    var width: Double = 0.0;
+    var height: Double = 0.0;
+    var area : Double
+    {
+        // computed getter
+        get
+        {
+            return width * height;
+        }
+        // computed setter
+        set
+        {
+            // Assume equal dimensions (i.e., a square) width = sqrt(newValue)
+            height = newValue.squareRoot();
+        }
+        
+    }
+}
+//var rect = Rectangle();
+//rect.width = 3.0;
+//rect.height = 4.5;
+//print(rect.area)
+//rect.area = 9;
+//print(rect.width)
+/*
+ Returns:
+ 13.5
+ 3.0
+ */
+class PropertyObserverExample
+{
+    var number: Int=0
+    {
+        willSet(newNumber)
+        {
+            print("About to change to \(newNumber)")
+        }
+        didSet(oldNumber)
+        {
+            print("Just changed from \(oldNumber) to \(self.number)!")
+        }
+    }
+    
+}
+
+var observer = PropertyObserverExample()
+observer.number = 4
 
